@@ -5,6 +5,7 @@ SHORT_SHA=$(git rev-parse --short HEAD)
 DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 VERSION=${VERSION:-${SHORT_SHA}}
 
+docker buildx create --use
 docker buildx build \
     --platform linux/amd64,linux/arm64 \
 	--build-arg BUILD_DATE="${DATE}" \
